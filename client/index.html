@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>Otakupedia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="user.js"></script>
+    <link rel="stylesheet" href="./users.css">
+</head>
+<body ng-controller="myController">
+    <center>
+        <h1>Otakupedia - Get your Anime Knowledge</h1>
+        <form ng-submit="addAnime()">
+            <input type="text" ng-model="name" placeholder="Name">
+            <input type="text" ng-model="mal_score" placeholder="MAL Score">
+            <input type="text" ng-model="rank" placeholder="Rank">
+            <input type="text" ng-model="pop" placeholder="Popularity">
+            <button type="submit">Add Anime</button>
+        </form>
+    </center>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>MAL Score</th>
+            <th>Rank</th>
+            <th>Popularity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ani in animes">
+            <td>{{ ani.name }}</td>
+            <td>{{ ani.mal_score }}</td>
+            <td>{{ ani.rank }}</td>
+            <td>{{ ani.pop }}</td>
+            <td>
+                <button type="button" ng-click="deleteAnime(ani)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
